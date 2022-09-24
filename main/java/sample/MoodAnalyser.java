@@ -22,21 +22,25 @@ public class MoodAnalyser {
 
 	// method to analyse mood by reading string
 	public String analyseMood(String message) {
-		if (message.toLowerCase().contains("any")) {
-			return "HAPPY";
-		} else if (message.toLowerCase().contains("sad")) {
-			return "SAD";
-		} else {
-			return null;
+		try {
+			if (message.toLowerCase().contains("Any")) {
+				return "HAPPY";
+			} else if (message.toLowerCase().contains("Sad")) {
+				return "SAD";
+			} else if (message.contains(" ")) {
+				return "Invalid mood";
+			} else {
+				return null;
+			}
+		} catch (NullPointerException e) {
+			System.out.println("exception: Null Pointer Exception \n");
+			e.printStackTrace();
+			return "Invalid mood";
 		}
 	}
 
-	// main method
 	public static void main(String[] args) {
-		MoodAnalyser moodAnalyser = new MoodAnalyser();
-		String mood = moodAnalyser.analyseMood("I am Happy");
-		System.out.println(mood);
-		mood = moodAnalyser.analyseMood("I am Sad");
-		System.out.println(mood);
+		MoodAnalyser obj = new MoodAnalyser();
+		System.out.println("Mood " + obj.analyseMood(null));
 	}
 }
