@@ -6,14 +6,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MoodAnalyserTest {
-
-	   @Test
-	    public void givenMessageIsProperShouldReturnSad() {
-	        MoodAnalyser moodAnalyser = new MoodAnalyser();
-	        String actualResult = moodAnalyser.analyseMood("I am Sad in Mood");
-	        Assert.assertEquals("SAD", actualResult);
-	    }
 	MoodAnalyser moodAnalyser = new MoodAnalyser();
+
+	@Test
+	public void givenMessageIsProperShouldReturnSad() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser();
+		String actualResult = moodAnalyser.analyseMood("I am Sad in Mood");
+		Assert.assertEquals("SAD", actualResult);
+	}
 
 	@Test
 	public void givenMessageIsProperAndContainAnyShouldReturnHappy() {
@@ -22,5 +22,3 @@ public class MoodAnalyserTest {
 	}
 
 }
-
-
